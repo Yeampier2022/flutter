@@ -12,6 +12,23 @@ widget Tree
         Text
 */
 
+class Greet extends StatelessWidget {
+  const Greet({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    var name = "Yeampier";
+    return Column(
+      children: [
+        Text("hola $name"),
+        TextField(
+          onChanged: (value) => name = value,
+        ),
+      ],
+    );
+  }
+}
+
 class Helloworld extends StatelessWidget {
   const Helloworld({Key? key}) : super(key: key);
 
@@ -54,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Helloworld(),
+      body: Greet(),
     );
   }
 }
