@@ -12,18 +12,26 @@ widget Tree
         Text
 */
 
-class Greet extends StatelessWidget {
+class Greet extends StatefulWidget {
   const Greet({super.key});
 
   @override
+  State<Greet> createState() => _GreetState();
+}
+
+class _GreetState extends State<Greet> {
+  var name = "Yeampier";
+
+  @override
   Widget build(BuildContext context) {
-    var name = "Yeampier";
     return Column(
       children: [
         Text("hola $name"),
+        const Text("Bienvenido a Flutter"),
         TextField(
-          onChanged: (value) => name = value,
-        ),
+            onChanged: (value) => setState(() => {
+                  name = value,
+                })),
       ],
     );
   }
