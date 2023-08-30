@@ -4,14 +4,6 @@ void main() {
   runApp(const MyApp());
 }
 
-/*
-widget Tree
-  MyApp
-    MyHomePage
-      Helloworld
-        Text
-*/
-
 class Greet extends StatefulWidget {
   const Greet({super.key});
 
@@ -26,12 +18,26 @@ class _GreetState extends State<Greet> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("hola $name"),
-        const Text("Bienvenido a Flutter"),
-        TextField(
-            onChanged: (value) => setState(() => {
-                  name = value,
-                })),
+        Padding(
+          padding: const EdgeInsets.all(2.0),
+          child: Row(
+            children: [
+              Text("Hi $name",
+                  style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.green,
+                      fontWeight: FontWeight.w900)),
+              const Text("!!!"),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(2.0),
+          child: TextField(
+              onChanged: (value) => setState(
+                    () => name = value,
+                  )),
+        ),
       ],
     );
   }
@@ -47,25 +53,22 @@ class Helloworld extends StatelessWidget {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Coffe Masters',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.brown,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -76,9 +79,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
+          title: Image.asset(
+        "assets/logo.png",
+      )),
       body: Greet(),
     );
   }
