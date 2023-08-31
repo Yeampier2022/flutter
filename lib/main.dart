@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'offers_price.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -19,20 +21,20 @@ class _GreetState extends State<Greet> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.all(2.0),
+          padding: const EdgeInsets.all(5.0),
           child: Row(
             children: [
               Text("Hi $name",
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 24,
-                      color: Colors.green,
+                      color: Colors.brown,
                       fontWeight: FontWeight.w900)),
               const Text("!!!"),
             ],
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(2.0),
+          padding: const EdgeInsets.all(4.0),
           child: TextField(
               onChanged: (value) => setState(
                     () => name = value,
@@ -82,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Image.asset(
         "assets/logo.png",
       )),
-      body: Greet(),
+      body: (const OffersPage()),
     );
   }
 }
